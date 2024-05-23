@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Bus{
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Boarding Stop: ");
+        int boardingStop = sc.nextInt();
+
+        System.out.print("Enter Destination Stop: ");
+        int destinationStop = sc.nextInt();
+
+        System.out.print("Enter Number of Adult Passengers: ");
+        int adultPassengers = sc.nextInt();
+
+        System.out.print("Enter Number of Child Passengers: ");
+        int childPassengers = sc.nextInt();
+
+        int stops =destinationStop - boardingStop;
+
+        double adultCost = adultPassengers * stops * 10;
+        double childCost = childPassengers * stops * 5;
+        double totalCost = adultCost + childCost;
+
+        double discount = 0;
+        if (adultPassengers >= 5) {
+            discount = 0.20;
+        } else if (adultPassengers == 4) {
+            discount = 0.15;
+        } else if (adultPassengers == 3) {
+            discount = 0.10;
+        } else if (adultPassengers == 2) {
+            discount = 0.05;
+        }
+
+        double discountedCost = totalCost * (1 - discount);
+
+        double tax = discountedCost * 0.10;
+
+        double totalPrice = discountedCost + tax;
+
+        System.out.println("Boarding Stop: " + boardingStop);
+        System.out.println("Destination Stop: " + destinationStop);
+        System.out.println("Number of Stops: " + stops);
+        System.out.println("Number of Adult Passengers: " + adultPassengers);
+        System.out.println("Number of Child Passengers: " + childPassengers);
+        System.out.println("Cost of Adult Tickets: Rs. " + adultCost);
+        System.out.println("Cost of Child Tickets: Rs. " + childCost);
+        System.out.println("Total Cost before Discount: Rs. " + totalCost);
+        System.out.println("Discount: " + (discount * 100) + "%");
+        System.out.println("Total Cost after Discount: Rs. " + discountedCost);
+        System.out.println("Tax: Rs. " + tax);
+        System.out.println("Total Price to Pay: Rs. " + totalPrice);
+    }
+}
