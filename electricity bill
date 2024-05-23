@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Electricity {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Service Number: ");
+        String serviceNumber = sc.nextLine();
+        
+        System.out.print("Enter Previous Reading: ");
+        int previousReading = sc.nextInt();
+        
+        System.out.print("Enter Current Reading: ");
+        int currentReading = sc.nextInt();
+        
+        int unitsConsumed = currentReading - previousReading;
+        
+        double cost;
+        if (unitsConsumed < 100) {
+            cost = unitsConsumed * 1.0;
+        } else if (unitsConsumed < 150) {
+            cost = unitsConsumed * 1.5;
+        } else if (unitsConsumed < 200) {
+            cost = unitsConsumed * 2.0;
+        } else {
+            cost = unitsConsumed * 2.5;
+        }
+        
+        double cgst = cost * 0.05;
+        double sgst = cost * 0.15;
+        
+   
+        double totalAmount = cost + cgst + sgst;
+        
+        System.out.println("Service Number: " + serviceNumber);
+        System.out.println("Previous Reading: " + previousReading);
+        System.out.println("Current Reading: " + currentReading);
+        System.out.println("Units Consumed: " + unitsConsumed);
+        System.out.println("Cost: Rs. " + cost);
+        System.out.println("CGST : Rs. " + cgst);
+        System.out.println("SGST : Rs. " + sgst);
+        System.out.println("Total Amount to Pay: Rs. " + totalAmount);
+    }
+}
