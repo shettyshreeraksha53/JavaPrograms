@@ -1,0 +1,106 @@
+import java.util.Scanner;
+
+public class Snakeandladder {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int d;
+        int p;
+        int p1 = 1;
+        int p2 = 1;
+        while (true)
+        {
+            System.out.print("Enter Player No. : ");
+            p = sc.nextInt();
+            switch(p)
+            {
+                case 1:
+                {
+                while(true)
+                {
+                d = (int)(Math.random() * 10);
+                if(d>=1 && d<=6)
+                    break;
+                }
+                System.out.println("Dice rolled: " + d);
+                p1 += d;
+                if (p1 == 8) {
+                    p1 += 22;  // 30
+                } else if (p1 == 26) {
+                    p1 += 24;  // 50
+                } else if (p1 == 42) {
+                    p1 += 28;  //  72
+                } else if (p1 == 64) {
+                    p1 += 32;  //  96
+                } else if (p1 == 98) {
+                    p1 -= 82;  //  16
+                } else if (p1 == 74) {
+                    p1 -= 50;  //  24
+                } else if (p1 == 62) {
+                    p1 -= 30;  //  32
+                } else if (p1 == 49) {
+                    p1 -= 20;  //  29
+                }
+
+                if (p1 > 100) {
+                    p1 -= d;  
+                }
+
+                System.out.println("Player 1 Score: " + p1);
+                System.out.println("Player 2 Score: " + p2);
+
+                if (p1 == 100) {
+                    System.out.println("Player 1 Wins");
+                    break;
+                }
+                }
+                break;
+                case 2:
+                {
+                    while(true) { 
+                        d = (int)(Math.random() *10);
+                        if(d>=1 && d<=6)
+                        break;
+                        }
+                System.out.println("Dice rolled: " + d);
+                p2 += d;
+                if (p2 == 8)
+                {
+                    p2 += 22;  // 30
+                } else if (p2 == 26) {
+                    p2 += 24;  //  50
+                } else if (p2 == 42) {
+                    p2 += 28;  //  72
+                } else if (p2 == 64) {
+                    p2 += 32;  //  96
+                } else if (p2 == 98) {
+                    p2 -= 82;  //  16
+                } else if (p2 == 74) {
+                    p2 -= 50;  //  24
+                } else if (p2 == 62) {
+                    p2 -= 30;  //  32
+                } else if (p2 == 49) {
+                    p2 -= 20;  //  29
+                }
+
+                if (p2 > 100) {
+                    p2 -= d;  
+                }
+
+                System.out.println("Player 1 Score: " + p1);
+                System.out.println("Player 2 Score: " + p2);
+
+                if (p2 == 100) {
+                    System.out.println("Player 2 Wins");
+                    break;
+                }
+
+            } 
+            break;
+            default:
+            
+                System.out.println("Invalid Player Number. Please enter 1 or 2.");
+            }
+        }
+        
+    }
+}
